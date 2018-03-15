@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=Ae, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Async Await</title>
+</head>
+
+<body>
+  <script>
+    // function orderCoffee(name, order, cb) {
+    //   setTimeout(() => {
+    //     console.log(`${name}, your ${order} is ready`)
+    //     cb({ name, order })
+    //   }, 2000)
+    // }
+    //
+    // function serveCoffee() {
+    //   const orders = []
+    //
+    //   orderCoffee("Cernan", "Black Coffee", function (order1) {
+    //     orders.push(order1)
+    //
+    //     orderCoffee("Ashley", "Carmel Macchiato", function (order2) {
+    //       orders.push(order2)
+    //
+    //       // console.log(orders)
+    //
+    //       orderCoffee("Daisy", "Hot Chocolate", function (order3) {
+    //         orders.push(order3)
+    //
+    //         console.log(orders)
+    //       })
+    //
+    //     })
+    //   })
+    // }
+    //
+    // serveCoffee()
+
+    // function orderCoffee(name, order) {
+    //
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       console.log(`${name}, your ${order} is ready`)
+    //       resolve({ name, order })
+    //     }, 2000)
+    //   })
+    // }
+    //
+    // function serveCoffee() {
+    //   const orders = []
+    //   orderCoffee("Cernan", "Black Coffee")
+    //     .then(order1 => {
+    //       orders.push(order1)
+    //
+    //       return orderCoffee("Ashley", "Carmel Macchiato")
+    //     })
+    //     .then(order2 => {
+    //       orders.push(order2)
+    //
+    //       return orderCoffee("Daisy", "Hot Chocolate")
+    //     })
+    //     .then(order3 => {
+    //       orders.push(order3)
+    //
+    //       console.log(orders)
+    //     })
+    //     .catch(err => console.log(err))
+    // }
+
+
+    // function orderCoffee(name, order) {
+    //
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       console.log(`${name}, your ${order} is ready`)
+    //       resolve({ name, order })
+    //     }, 2000)
+    //   })
+    // }
+    //
+    // async function serveCoffee() {
+    //   const orders = []
+    //
+    //   const order1 = await orderCoffee("Cernan", "Black Coffee")
+    //   orders.push(order1)
+    //
+    //   const order2 = await orderCoffee('Ashley', 'Caramel Macchiato')
+    //   orders.push(order2)
+    //
+    //   console.log(orders)
+    // }
+    // serveCoffee()
+
+    function doSomethingLater() {
+      console.log('this should be done last')
+    }
+
+    function getGithubUser() {
+      return fetch('https://api.github.com/users/margaritakhodzka')
+        .then(res => res.json())
+    }
+
+    async function makeApiCall() {
+      const user = await getGithubUser()
+
+      console.log(user)
+      doSomethingLater()
+    }
+    makeApiCall()
+
+  </script>
+</body>
+
+</html>
