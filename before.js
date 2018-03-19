@@ -7,3 +7,12 @@ function bar(x) {
 }
 
 bar(0)
+
+//--------------------------------------------
+
+function double (a, b, c) {
+  var argsArray = [].slice.call(arguments)
+  return argsArray.map(x => x * 2)
+}
+
+console.log(double(1, 2, 3, 4, 5, 6, 7))
