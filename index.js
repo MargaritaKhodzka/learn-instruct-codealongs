@@ -37,3 +37,27 @@ var [a, b , c, [d, e, f]] = myArray() || []
 console.log(d)
 console.log(e)
 console.log(f)
+
+//------------------------------------
+
+//object destructuring
+
+function myObject() {
+  return {a: 1, b: 2, c: 3}
+}
+
+var {a, b, c} = myObject()
+
+console.log(a)
+console.log(b)
+console.log(c)
+
+//------------------------------------
+
+function myObject() {
+  return {a: 1, b: 2, c: 3, d: {e: 4}}
+}
+
+var {a, b, c, d, d: {e}} = myObject()
+
+console.log(e)
