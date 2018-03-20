@@ -61,3 +61,22 @@ function myObject() {
 var {a, b, c, d, d: {e}} = myObject()
 
 console.log(e)
+
+//------------------------------------
+
+// destructuring function parameters
+
+//array
+function myFunc([a, b, c], str) {
+  console.log(a)
+  console.log(str)
+}
+myFunc([32, 43, 54], 'hello')
+
+//object
+
+function myFunc({a, b, c}, str) {
+  console.log(a)
+  console.log(str)
+}
+myFunc({a: 32, b: 43,c: 54}, 'hello')
